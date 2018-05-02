@@ -26,7 +26,7 @@ const cache = new InMemoryCache();
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors) {
-    console.log(graphQLErrors);
+    console.log(graphQLErrors[0].message);
   }
 
   if (networkError) {
