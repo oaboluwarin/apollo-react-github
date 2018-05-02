@@ -1,8 +1,5 @@
 import React from 'react';
-
 import { Link } from '.';
-
-// import '../style.css';
 
 const RepositoryItem = ({
   name,
