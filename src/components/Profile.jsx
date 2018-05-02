@@ -1,7 +1,11 @@
 import React from 'react';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
-import { Loading, RepositoryList, ErrorMessage } from '.';
+import {
+  Loading,
+  RepositoryList,
+  ErrorMessage
+} from '.';
 
 const GET_REPOSITORIES_OF_CURRENT_USER = gql`
   {
