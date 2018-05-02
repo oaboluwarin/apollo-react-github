@@ -1,7 +1,11 @@
 import React from 'react';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
-import { Loading, RepositoryList } from '.';
+import {
+  Loading,
+  RepositoryList,
+  ErrorMessage
+} from '.';
 
 const GET_REPOSITORIES_OF_CURRENT_USER = gql`
   {
@@ -41,7 +45,11 @@ const GET_REPOSITORIES_OF_CURRENT_USER = gql`
 const Profile = () => {
   return (
     <Query query={GET_REPOSITORIES_OF_CURRENT_USER}>
-      {({ data, loading }) => {
+      {({ data, loading, error }) => {
+        if (error) {
+          return <ErrorMessage error={error} />;
+        }
+
         const { viewer } = data;
 
         if (loading || !viewer) {
